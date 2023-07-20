@@ -28,9 +28,9 @@ conda activate dsdiff
 ```bash
 # Stable Diffusion
 # 4-bit weights-only, ratio=50%
-python scripts/txt2img.py --prompt <prompt. e.g. "a puppet wearing a hat"> --plms --cond --ptq --weight_bit 4 --quant_mode qdiff --no_grad_ckpt --split --n_samples 5 --ratio 0.5 --outdir <output_path> --cali_ckpt <quantized_ckpt_path> 
+python scripts/txt2img_dsd.py --prompt <prompt. e.g. "a puppet wearing a hat"> --plms --cond --ptq --weight_bit 4 --quant_mode qdiff --no_grad_ckpt --split --n_samples 5 --ratio 0.5 --outdir <output_path> --cali_ckpt <quantized_ckpt_path> 
 # 4-bit weights, 8-bit activations, ratio=50% (with 16-bit for attention matrices after softmax)
-python scripts/txt2img.py --prompt <prompt. e.g. "a puppet wearing a hat"> --plms --cond --ptq --weight_bit 4 --quant_mode qdiff --no_grad_ckpt --split --n_samples 5 --quant_act --act_bit 8 --sm_abit 16 --ratio 0.5 --outdir <output_path> --cali_ckpt <quantized_ckpt_path> 
+python scripts/txt2img_dsd.py --prompt <prompt. e.g. "a puppet wearing a hat"> --plms --cond --ptq --weight_bit 4 --quant_mode qdiff --no_grad_ckpt --split --n_samples 5 --quant_act --act_bit 8 --sm_abit 16 --ratio 0.5 --outdir <output_path> --cali_ckpt <quantized_ckpt_path> 
 ```
 
 After generating images by the above scripts, you can evaluate the FID score using the following command: 
